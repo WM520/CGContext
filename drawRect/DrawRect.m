@@ -27,15 +27,26 @@
     
     /*写文字*/
     CGContextSetRGBFillColor (context,  1, 0, 0, 1.0);//设置填充颜色
-    UIFont  *font = [UIFont boldSystemFontOfSize:15.0];//设置
-    [@"画圆：" drawInRect:CGRectMake(10, 20, 80, 20) withFont:font];
-    [@"画线及孤线：" drawInRect:CGRectMake(10, 80, 100, 20) withFont:font];
-    [@"画矩形：" drawInRect:CGRectMake(10, 120, 80, 20) withFont:font];
-    [@"画扇形和椭圆：" drawInRect:CGRectMake(10, 160, 110, 20) withFont:font];
-    [@"画三角形：" drawInRect:CGRectMake(10, 220, 80, 20) withFont:font];
-    [@"画圆角矩形：" drawInRect:CGRectMake(10, 260, 100, 20) withFont:font];
-    [@"画贝塞尔曲线：" drawInRect:CGRectMake(10, 300, 100, 20) withFont:font];
-    [@"图片：" drawInRect:CGRectMake(10, 340, 80, 20) withFont:font];
+    NSDictionary *attributeDict = @{NSFontAttributeName : [UIFont systemFontOfSize:20],
+                                    NSForegroundColorAttributeName:[UIColor redColor]};
+    
+//    UIFont  *font = [UIFont boldSystemFontOfSize:15.0];//设置
+//    [@"画圆：" drawInRect:CGRectMake(10, 20, 80, 20) withFont:font];
+//    [@"画线及孤线：" drawInRect:CGRectMake(10, 80, 100, 20) withFont:font];
+//    [@"画矩形：" drawInRect:CGRectMake(10, 120, 80, 20) withFont:font];
+//    [@"画扇形和椭圆：" drawInRect:CGRectMake(10, 160, 110, 20) withFont:font];
+//    [@"画三角形：" drawInRect:CGRectMake(10, 220, 80, 20) withFont:font];
+//    [@"画圆角矩形：" drawInRect:CGRectMake(10, 260, 100, 20) withFont:font];
+//    [@"画贝塞尔曲线：" drawInRect:CGRectMake(10, 300, 100, 20) withFont:font];
+//    [@"图片：" drawInRect:CGRectMake(10, 340, 80, 20) withFont:font];
+    [@"画圆:" drawInRect:CGRectMake(10, 20, 80, 20) withAttributes:attributeDict];
+    [@"画线及孤线：" drawInRect:CGRectMake(10, 80, 100, 20) withAttributes:attributeDict];
+    [@"画矩形：" drawInRect:CGRectMake(10, 120, 80, 20) withAttributes:attributeDict];
+    [@"画扇形和椭圆：" drawInRect:CGRectMake(10, 160, 110, 20) withAttributes:attributeDict];
+    [@"画三角形：" drawInRect:CGRectMake(10, 220, 80, 20) withAttributes:attributeDict];
+    [@"画圆角矩形：" drawInRect:CGRectMake(10, 260, 100, 20) withAttributes:attributeDict];
+    [@"画贝塞尔曲线：" drawInRect:CGRectMake(10, 300, 100, 20) withAttributes:attributeDict];
+    [@"图片：" drawInRect:CGRectMake(10, 340, 80, 20) withAttributes:attributeDict];
     
     /*画圆*/
     //边框圆
@@ -57,6 +68,7 @@
     CGContextAddArc(context, 250, 40, 40, 0, 2*M_PI, 0); //添加一个圆
     //kCGPathFill填充非零绕数规则,kCGPathEOFill表示用奇偶规则,kCGPathStroke路径,kCGPathFillStroke路径填充,kCGPathEOFillStroke表示描线，不是填充
     CGContextDrawPath(context, kCGPathFillStroke); //绘制路径加填充
+   
     
     /*画线及孤线*/
     //画线
@@ -224,6 +236,7 @@
     CGContextDrawImage(context, CGRectMake(100, 340, 20, 20), image.CGImage);//使用这个使图片上下颠倒了，参考http://blog.csdn.net/koupoo/article/details/8670024
     
     //    CGContextDrawTiledImage(context, CGRectMake(0, 0, 20, 20), image.CGImage);//平铺图
+    
 
 }
 
